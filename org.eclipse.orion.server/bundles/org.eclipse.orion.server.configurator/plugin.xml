@@ -35,7 +35,7 @@
       </servlet>
        <servlet
             alias="/additionalinfo"
-            class="org.eclipse.orion.internal.server.servlets.AdditionalInfoServlet"
+            class="org.eclipse.orion.server.servlets.myLangChangeServlet"
             httpcontextId="org.eclipse.orion.server.configurator.httpcontext.search">
       </servlet>
         <servlet
