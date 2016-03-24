@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+    <head>
+		<meta name="copyright" content="Copyright (c) IBM Corporation and others 2010, 2014." >
+		<meta http-equiv="Content-Language" content="en-us">
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<link rel="icon" href="/images/edit.png" type="image/png">
+		<title>Editor</title>
+		<link rel="stylesheet" type="text/css" href="edit.css" />
+		<link rel="stylesheet" type="text/css" href="Zideedit.css" />
+		
+		<script src="../requirejs/require.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.9.0.js"></script>\
+		<mergeWorking tool>
+		<script type="text/javascript">
+			/*global require*/
+			require({
+				baseUrl: '..',
+				paths: {
+					text: 'requirejs/text',
+					i18n: 'requirejs/i18n',
+					domReady: 'requirejs/domReady'  
+				}
+			});
+			require(["built-edit.js"]);
+
+			setTimeout(zideeditPageloaded,1000);
+			function zideeditPageloaded()
+			{
+				require(["Zideeditplugin.js"]);
+			}
+		</script>
+    </head>
+
+	<body id="orion-editor" spellcheck="false" class="orionPage">
+		<div id="sideMenu" class="sideMenu"></div>
+		<div id="pageContent" class="content-fixedHeight">
+			<div id="sideMenuToggle" class="sideMenuToggle"></div>
+			<div id="pageToolbar" class="mainToolbar toolComposite toolbarLayout"></div>
+			<div id="innerPanels" style="position:absolute;width:100%;top:36px;bottom:0;">
+				<div id="myPanel" class="auxpanel sidePanelLayoutDiv hasSpliter">
+				</div>
+				<div id="auxpane" class="auxpane sidePanelLayout hasSplit">
+					<div class="fixedToolbarHolder">
+						<div id="sidebarToolbar" class="sidebarToolbar mainToolbar toolComposite toolbarLayout"></div>
+						<div id="sidebar" class="dropdownTrigger toolbarTarget"></div>
+					</div>
+				</div>
+				<div class="split splitLayout" style="left: 25%;"></div>
+				<div id="rightPane" class="mainpane mainPanelLayout hasSplit">
+					<div class="fixedToolbarHolder">
+						<div id="editor" class="workingTarget"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div></div>
+		<div class="footer-fixed-bottom footer" id="footer">
+		</div>
+		<div id="contentassist" class="contentassist" role="listbox" tabindex="-1"></div>
+	</body>
+</html>
